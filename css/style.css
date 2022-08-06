@@ -1,4 +1,21 @@
 :root{
+    /* Primary */
+
+    --linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --red:hsl(0, 100%, 66%);
+
+    /* Natural */
+
+    --white:  hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
+    /* Font */
+
+    --family: 'Space Grotesk', sans-serif;
+    --size: 1.125rem;
+    --weights: 500;
 
 }
 
@@ -16,6 +33,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--family);
 }
 
 main{
@@ -39,6 +57,7 @@ main{
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 10px;
+    position: relative;
 }
 
 .card img{
@@ -50,7 +69,49 @@ main{
     left: 6rem;
 }
 
+.left-side .card-front .content-card-front{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left-side .card-front .content-card-front .header-card .logo-card img{
+    width: 4.5rem;
+}
+
+.left-side .card-front .content-card-front .footer-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+    color: var(--white);
+}
+
+.left-side .card-front .content-card-front .footer-card .number-card{
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--weights);
+    letter-spacing: .2rem;
+    font-size: var(--size);
+}
+
+.left-side .card-front .content-card-front .footer-card .user-card{
+    display: flex;
+    justify-content: space-between;
+    font-size: .6rem;
+    color: var(--light-grayish-violet);
+}
+
+.left-side .card-front .content-card-front .footer-card .user-card .date-card{
+    display: flex;
+    gap: .1rem;
+    letter-spacing: .1rem;
+}
+
 .left-side .card-back{
     left: 11rem;
-
 }
