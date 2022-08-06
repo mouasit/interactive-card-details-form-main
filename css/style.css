@@ -26,72 +26,70 @@
 }
 
 html,body{
-    height: 100vh;
+    min-height: 100vh;
 }
 
 body{
     display: flex;
     justify-content: center;
-    align-items: center;
     font-family: var(--family);
-    width: 100%;
 }
 
 main{
     background-color: #fff;
     width:100% ;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-/*.left-side{
-    background-image: url('../images/bg-main-desktop.png');
-    width: 21rem;
-    height: 40rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.8rem;
-}*/
+}
 
-.left-side{
-    width: 21rem;
-    height: 40rem;
+.left-side {
+    width: 100%;
     position: relative;
+    display: flex;
+}
+
+.left-side .bg-mobile{
+    width: 100%;
+    height: 18rem;
 }
 
 .left-side .bg-desktop{
-    width: 100%;
-    height: 100%;
+    display: none;
 }
 
-.left-side .container-side{
+.container-side{
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 1.8rem;
-
+    align-items: center;
+    margin-top: 2.5rem;
 }
 
-.container-side .card{
+.card{
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 10px;
-    position: relative;
+    max-width: 21rem;
 }
 
-.container-side .card img{
+.card img{
     width: 100%;
     height: 100%;
 }
 
+
 .left-side .card-front{
-    left: 6rem;
+    position: relative;
+    bottom: 5.1rem;
+    margin-right: 4.3rem;
+}
+
+.left-side .card-back{
+    margin-left: 4.3rem;
 }
 
 .left-side .card-front .content-card-front{
@@ -137,10 +135,6 @@ main{
     letter-spacing: .1rem;
 }
 
-.left-side .card-back{
-    left: 11rem;
-}
-
 .left-side .cvc{
     position: absolute;
     top: 5.4rem;
@@ -150,13 +144,85 @@ main{
     font-size: .7rem;
 }
 
+.right-side{
+    padding-top: 8rem;
+}
+
+
+
 
 /* Responsive */
 
 @media screen and (min-width: 1440px) {
-    main{
 
-        width: 70rem;
+    body{
+        align-items: center;
     }
+
+    main{
+        width: 70rem;
+        flex-direction: row;
+    }
+
+    .left-side{
+        width: 21rem;
+        height: 40rem;
+        position: relative;
+    }
+
+    .left-side .bg-desktop{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .left-side .card-front{
+        bottom: 0rem;
+        margin-right: 0rem;
+    }
+    
+    .left-side .card-back{
+        margin-left: 0rem;
+    }
+
+    .container-side{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0rem;
+        gap: 1.8rem;
+    }
+
+    .left-side .card-back{
+        left: 11rem;
+    }
+
+    .left-side .card-front{
+        left: 6rem;
+    }
+    
+
+    .left-side .bg-mobile{
+        display: none;
+    }
+
+    .card{
+        max-width: 100%;
+    }
+
+    .left-side .cvc{
+        top: 5.4rem;
+        right: 2.7rem;
+    }
+
+    .right-side{
+        padding-top: 0rem;
+    }
+
 
 }
