@@ -115,3 +115,13 @@ main{
 .left-side .card-back{
     left: 11rem;
 }
+
+.left-side .cvc{
+    position: absolute;
+    top: 5.4rem;
+    right: 2.7rem;
+    letter-spacing: .1rem;
+    color: var(--white);
+    font-size: .7rem;
+}
+
