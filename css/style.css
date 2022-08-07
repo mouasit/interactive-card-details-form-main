@@ -149,16 +149,18 @@ main{
 /* right side */
 
 .right-side{
-    padding-top: 8rem;
+    padding-top: 5rem;
     font-size: var(--size);
-    padding-left: 7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 3.4rem;
 }
 
 .right-side form{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 50%;
+    width: 100%;
 }
 
 .right-side form .input-groupe{
@@ -301,17 +303,21 @@ form button{
     .right-side{
         flex: 1;
         padding-top: 0rem;
+        padding-left: 7rem;
+        padding-right: 0rem;
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
+    .right-side form{
+        width: 50%;
+    }
+
 }
 
 @media screen and (max-width: 406px) {
 
-    .container-side{
-        overflow: hidden;
-    }
 
     .card{
         max-width: auto;
@@ -326,6 +332,16 @@ form button{
         margin-left: 0rem;
     }
 
+}
 
+@media screen and (max-width: 349px) {
+
+    main{
+        overflow: hidden;
+    }
+
+    .right-side form .row-input{
+        flex-wrap: wrap;
+    }
 
 }
