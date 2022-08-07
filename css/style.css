@@ -43,6 +43,8 @@ main{
     flex-direction: column;
 }
 
+/* left side */
+
 .left-side {
     width: 100%;
     position: relative;
@@ -144,10 +146,86 @@ main{
     font-size: .7rem;
 }
 
+/* right side */
+
 .right-side{
     padding-top: 8rem;
+    font-size: var(--size);
+    padding-left: 7rem;
 }
 
+.right-side form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 50%;
+}
+
+.right-side form .input-groupe{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+
+.right-side form .input-groupe label{
+    text-transform: uppercase;
+    color: var(--very-dark-violet);
+    font-size: .7rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+}
+
+.right-side form .input-groupe input{
+    padding: .7rem;
+    border-radius: .5rem ;
+    border: 1.5px solid var(--light-grayish-violet);
+    width: 100%;
+    font-size: .9rem;
+    font-family: var(--family);
+    color: var(--very-dark-violet);
+}
+
+.right-side form .input-groupe input::placeholder{
+    font-family: var(--family);
+    color: var(--dark-grayish-violet);
+    opacity: 0.5;
+    font-size: .9rem;
+}
+
+.right-side form .input-groupe input:focus{
+    border-color: hsl(278, 94%, 30%);
+    outline: none;
+}
+
+
+.right-side form .row-input{
+    display: flex;
+    gap: 1.3rem;
+}
+
+.right-side form .row-input .input-groupe{
+    display: flex;
+    width: 100%;
+}
+
+.right-side form .row-input .element-input{
+    display: flex;
+    gap: .7rem;
+}
+
+form button{
+    padding: .7rem;
+    border-radius: .5rem ;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: var(--family);
+    color: var(--white);
+    background-color: var(--very-dark-violet);
+    text-align: center;
+    margin-top: .5rem;
+    border: 1.5px solid var(--very-dark-violet);
+}
 
 
 
@@ -221,14 +299,18 @@ main{
     }
 
     .right-side{
+        flex: 1;
         padding-top: 0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 @media screen and (max-width: 406px) {
 
     .container-side{
-        overflow: auto;
+        overflow: hidden;
     }
 
     .card{
