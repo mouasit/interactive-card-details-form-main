@@ -223,6 +223,27 @@ main{
     .right-side{
         padding-top: 0rem;
     }
+}
+
+@media screen and (max-width: 406px) {
+
+    .container-side{
+        overflow: auto;
+    }
+
+    .card{
+        max-width: auto;
+        width: 21rem;
+    }
+
+    .left-side .card-front{
+        margin-right: 0rem;
+    }
+    
+    .left-side .card-back{
+        margin-left: 0rem;
+    }
+
 
 
 }
