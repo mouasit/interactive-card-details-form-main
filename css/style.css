@@ -188,6 +188,11 @@ main{
     color: var(--very-dark-violet);
 }
 
+.right-side form .input-groupe .error{
+    color: var(--red);
+    font-size: .7rem;
+}
+
 .right-side form .input-groupe input::placeholder{
     font-family: var(--family);
     color: var(--dark-grayish-violet);
