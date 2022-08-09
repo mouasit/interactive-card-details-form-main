@@ -191,6 +191,11 @@ main{
 .right-side form .input-groupe .error{
     color: var(--red);
     font-size: .7rem;
+    display: none;
+}
+
+.right-side form .input-groupe .error-state{
+    border-color: var(--red);
 }
 
 .right-side form .input-groupe input::placeholder{
