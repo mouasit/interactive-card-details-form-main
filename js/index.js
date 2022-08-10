@@ -1,6 +1,27 @@
 const form = document.getElementById("myForm");
-const inputGroupe = document.getElementsByClassName("input-groupe")
+const inputGroupe = document.getElementsByClassName("input-groupe");
+const inputCardNumber = document.getElementById("number");
 
+
+// card number input
+
+inputCardNumber.addEventListener("input",function(){
+    let value = this.value;
+    let newValue = value.replace(/\s+/g,'').replace(/[^0-9]/gi,'');
+    let matches = newValue.match(/\d{4,16}/g);
+    let parts = [];
+    let match = matches && matches[0] || '';
+
+    for (let index = 0; index < match.length; index += 4) {
+        parts.push(match.substring(index,index + 4));
+    }
+
+    if(parts.length)
+        this.value = parts.join(' ');
+})
+
+
+// form errors
 form.addEventListener("submit",function(e){
     e.preventDefault();
     let array = Array.prototype.slice.call(inputGroupe);
