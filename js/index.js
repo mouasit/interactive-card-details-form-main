@@ -4,20 +4,28 @@ const inputCardNumber = document.getElementById("number");
 
 
 // card number input
-
+var position = 0;
 inputCardNumber.addEventListener("input",function(){
     let value = this.value;
-    let newValue = value.replace(/\s+/g,'').replace(/[^0-9]/gi,'');
-    let matches = newValue.match(/\d{4,16}/g);
+    let newValue = value.replace(/\s+/g,'');
     let parts = [];
-    let match = matches && matches[0] || '';
 
-    for (let index = 0; index < match.length; index += 4) {
-        parts.push(match.substring(index,index + 4));
+    for (let index = 0; index < newValue.length; index += 4) {
+        parts.push(newValue.substring(index,index + 4));
     }
 
     if(parts.length)
+    {
         this.value = parts.join(' ');
+        console.log(position);
+        this.setSelectionRange(position,position);
+
+    }
+})
+
+inputCardNumber.addEventListener("keyup",function(event){
+    console.log(55);
+    position =  event.target.selectionStart;
 })
 
 
