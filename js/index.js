@@ -4,28 +4,24 @@ const inputCardNumber = document.getElementById("number");
 
 
 // card number input
-var position = 0;
 inputCardNumber.addEventListener("input",function(){
     let value = this.value;
     let newValue = value.replace(/\s+/g,'');
+    let firstPosition = this.selectionStart;
     let parts = [];
-
+    
     for (let index = 0; index < newValue.length; index += 4) {
         parts.push(newValue.substring(index,index + 4));
     }
-
+    
     if(parts.length)
     {
         this.value = parts.join(' ');
-        console.log(position);
-        this.setSelectionRange(position,position);
-
+        let lastPosition = this.selectionStart;
+        if(lastPosition - firstPosition > 1)
+            this.setSelectionRange(firstPosition, firstPosition);
     }
-})
 
-inputCardNumber.addEventListener("keyup",function(event){
-    console.log(55);
-    position =  event.target.selectionStart;
 })
 
 
