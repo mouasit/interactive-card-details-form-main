@@ -1,7 +1,24 @@
 const form = document.getElementById("myForm");
+const input = document.querySelectorAll("input");
 const inputGroupe = document.getElementsByClassName("input-groupe");
 const inputCardNumber = document.getElementById("number");
+const inputMonth = document.getElementById("month");
+const inputYear = document.getElementById("year");
 
+
+//hide error when focus on input
+
+input.forEach((e,index) => {
+    e.addEventListener("input",function(){
+        this.classList.remove("error-state");
+        let parent = this.parentElement;
+        if(parent.classList[0] != "input-groupe")
+            parent = parent.parentElement;
+        let error = parent.getElementsByClassName("error");
+        
+        error[0].style.display = "none";
+    })
+})
 
 // card number input
 inputCardNumber.addEventListener("input",function(){
@@ -22,6 +39,13 @@ inputCardNumber.addEventListener("input",function(){
             this.setSelectionRange(firstPosition, firstPosition);
     }
 
+})
+
+// card month and year
+
+inputMonth.addEventListener("input",function(e){
+    if(this.value.length == 2)
+        inputYear.focus();
 })
 
 
@@ -76,9 +100,6 @@ function checkInput(input)
     {
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
-        if (inputValue.length < 2)
-            throw "Must be only 2 numbers";
-            
     }
     
     //check year input
@@ -93,8 +114,8 @@ function checkInput(input)
     {
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
-        if ((inputValue.length < 3) || (inputValue.length > 3))
-            throw "Must be only 3 numbers";
+        if ((inputValue.length < 3))
+            throw "Minimum 3 numbers";
     }
 }
 

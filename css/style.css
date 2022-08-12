@@ -201,7 +201,7 @@ main{
 .right-side form .input-groupe input::placeholder{
     font-family: var(--family);
     color: var(--dark-grayish-violet);
-    opacity: 0.5;
+    opacity: 0.7;
     font-size: .9rem;
 }
 
