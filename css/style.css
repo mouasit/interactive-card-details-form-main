@@ -131,6 +131,12 @@ main{
     color: var(--light-grayish-violet);
 }
 
+#nameHolder{
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+}
+
 .left-side .card-front .content-card-front .footer-card .user-card .date-card{
     display: flex;
     gap: .1rem;
@@ -201,7 +207,7 @@ main{
 .right-side form .input-groupe input::placeholder{
     font-family: var(--family);
     color: var(--dark-grayish-violet);
-    opacity: 0.7;
+    opacity: 0.5;
     font-size: .9rem;
 }
 

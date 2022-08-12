@@ -31,7 +31,7 @@
       <div class="container-side">
         <div class="card card-back">
           <img src="./images/bg-card-back.png" alt="background-card-front">
-          <div class="cvc">000</div>
+          <div id="numberCvc" class="cvc">000</div>
         </div>
         <div class="card card-front">
           <img src="./images/bg-card-front.png" alt="background-card-front">
@@ -42,18 +42,18 @@
               </div>
             </div>
             <div class="footer-card">
-              <div class="number-card">
+              <div id="numberCard" class="number-card">
                 <span>0000</span>
                 <span>0000</span>
                 <span>0000</span>
                 <span>0000</span>
               </div>
               <div class="user-card">
-                <span class="name-user">JANE APPLESSED</span>
+                <span id="nameHolder">Cardholder Name</span>
                 <span class="date-card">
-                  <span>00</span>
+                  <span id="numberMonth">00</span>
                   <span>/</span>
-                  <span>00</span>
+                  <span id="numberYear">00</span>
                 </span>
               </div>
             </div>
@@ -81,7 +81,7 @@
             <label>exp. date (mm/yy)</label>
             <div class="element-input">
               <input id="month" type="text" placeholder="MM">
-              <input id="year" type="text" placeholder="YY">
+              <input id="year" type="text" placeholder="YY" maxlength="4">
             </div>
             <div class="error"></div>
           </div>

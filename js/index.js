@@ -1,9 +1,16 @@
 const form = document.getElementById("myForm");
 const input = document.querySelectorAll("input");
+
 const inputGroupe = document.getElementsByClassName("input-groupe");
 const inputCardNumber = document.getElementById("number");
 const inputMonth = document.getElementById("month");
 const inputYear = document.getElementById("year");
+
+const nameHolder = document.getElementById("nameHolder");
+const numberCard = document.getElementById("numberCard");
+const numberMonth = document.getElementById("numberMonth");
+const numberYear = document.getElementById("numberYear");
+const numberCvc = document.getElementById("numberCvc");
 
 
 //hide error when focus on input
@@ -77,6 +84,20 @@ form.addEventListener("submit",function(e){
 function checkInput(input)
 {
     let inputValue = input.value;
+    var partNumber = numberCard.getElementsByTagName("span");
+
+    //initiallisation
+    if (input.id == "name")
+        nameHolder.innerHTML = "Cardholder Name";
+    if(input.id == "number")
+        fillZero(partNumber)
+    if (input.id == "month")
+        numberMonth.innerHTML = "00";
+    if(input.id == "year")
+        numberYear.innerHTML = "00";
+    if (input.id == "cvc")
+        numberCvc.innerHTML = "000"
+
     // check empty input and input with spaces
     if ((!inputValue.length) || (!inputValue.trim().length))
         throw "Can't be blank";
@@ -84,6 +105,7 @@ function checkInput(input)
     //check holdercard name input
     if(input.id == "name")
     {
+        nameHolder.innerHTML = input.value;
         if(findNumber(inputValue))
             throw "Wrong format, letters only";
     }
@@ -91,13 +113,30 @@ function checkInput(input)
     //check card number input
     if(input.id == "number")
     {
+        let numbers = input.value.split(' ');
+        numbers.forEach((e , index) => {
+            let listZero = partNumber[index].innerHTML.length - e.length;
+            let valueZero = '';
+            for (let i = 0; i < listZero; i++) {
+                valueZero = valueZero + '0';
+            }
+            partNumber[index].innerHTML = e + valueZero;
+        })
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
+        if(input.value.length < 19)
+            throw "Minimum 16 numbers";
+        
+        
     }
 
     //check month input
     if(input.id == "month")
     {
+        if(input.value.length == 1)
+            numberMonth.innerHTML = 0 + inputValue;
+        else
+            numberMonth.innerHTML = input.value;
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
     }
@@ -105,17 +144,24 @@ function checkInput(input)
     //check year input
     if(input.id == "year")
     {
+        if(input.value.length == 1)
+            numberYear.innerHTML = 0 + inputValue;
+        else
+            numberYear.innerHTML = input.value;
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
+            
     }
 
     //check cvc input
     if(input.id == "cvc")
     {
+        numberCvc.innerHTML = input.value;
         if(findLetter(inputValue))
             throw "Wrong format, numbers only";
         if ((inputValue.length < 3))
             throw "Minimum 3 numbers";
+        
     }
 }
 
@@ -150,4 +196,11 @@ function findLetter(string)
             return true;
     }
     return false;
+}
+
+
+function fillZero(list){
+    for (let index = 0; index < list.length; index++) {
+        list[index].innerHTML = "0000";
+    }
 }
