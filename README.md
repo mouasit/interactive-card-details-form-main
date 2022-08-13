@@ -1,4 +1,4 @@
-# Interactive rating component
+# Interactive card details form main
 ![desktop-preview](./design/desktop-preview.jpg)
 
 ## Overview
