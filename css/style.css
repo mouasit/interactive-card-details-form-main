@@ -32,6 +32,7 @@ html,body{
 body{
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: var(--family);
 }
 
@@ -155,19 +156,20 @@ main{
 /* right side */
 
 .right-side{
-    padding-top: 5rem;
     font-size: var(--size);
+    padding-top: 6rem;
+    padding-bottom: 3.2rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-bottom: 3.4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .right-side form{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 100%;
-    display: none;
+    width: 500px;
 }
 
 .right-side form .input-groupe{
@@ -246,15 +248,64 @@ form button{
     border: 1.5px solid var(--very-dark-violet);
 }
 
+.right-side .thank-you{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    display: none;
+}
+
+.right-side .thank-you .main-thank-you{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+}
+
+.right-side .thank-you .main-thank-you svg{
+    margin-bottom: .7rem;
+}
+
+.right-side .thank-you .main-thank-you h1{
+    color: var(--very-dark-violet);
+    letter-spacing: .1rem;
+    font-weight:normal;
+    font-size: 1.6rem;
+
+}
+
+.right-side .thank-you .main-thank-you span{
+    color: var(--dark-grayish-violet);
+    font-size: .9rem;
+}
+
+.right-side .thank-you .row-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.right-side .thank-you .row-button button{
+    width: 350px;
+    padding: .7rem;
+    border-radius: .5rem ;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: var(--family);
+    color: var(--white);
+    background-color: var(--very-dark-violet);
+    text-align: center;
+    border: 1.5px solid var(--very-dark-violet);
+}
+
 
 
 /* Responsive */
 
 @media screen and (min-width: 1440px) {
-
-    body{
-        align-items: center;
-    }
 
     main{
         width: 70rem;
@@ -322,8 +373,6 @@ form button{
         padding-top: 0rem;
         padding-left: 7rem;
         padding-right: 0rem;
-        display: flex;
-        justify-content: center;
         align-items: center;
     }
 
@@ -331,7 +380,15 @@ form button{
         width: 50%;
     }
 
+    .right-side .thank-you{
+        width: 50%;
+    }
+
+    .right-side .thank-you .row-button button{
+        width: 100%;
+    }
 }
+
 
 @media screen and (max-width: 406px) {
 
