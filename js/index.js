@@ -5,12 +5,17 @@ const inputGroupe = document.getElementsByClassName("input-groupe");
 const inputCardNumber = document.getElementById("number");
 const inputMonth = document.getElementById("month");
 const inputYear = document.getElementById("year");
+const inputCvc = document.getElementById("cvc");
 
 const nameHolder = document.getElementById("nameHolder");
 const numberCard = document.getElementById("numberCard");
 const numberMonth = document.getElementById("numberMonth");
 const numberYear = document.getElementById("numberYear");
 const numberCvc = document.getElementById("numberCvc");
+
+var tmpCard = '';
+var tmpCvc = '';
+var tmpYear = '';
 
 
 //hide error when focus on input
@@ -28,24 +33,45 @@ input.forEach((e,index) => {
 })
 
 // card number input
-inputCardNumber.addEventListener("input",function(){
-    let value = this.value;
-    let newValue = value.replace(/\s+/g,'');
-    let firstPosition = this.selectionStart;
-    let parts = [];
-    
-    for (let index = 0; index < newValue.length; index += 4) {
-        parts.push(newValue.substring(index,index + 4));
-    }
-    
-    if(parts.length)
+inputCardNumber.addEventListener("input",function(event){
+
+    if(this.value.length > 19)
+        this.value = tmp;
+    else
     {
-        this.value = parts.join(' ');
-        let lastPosition = this.selectionStart;
-        if(lastPosition - firstPosition > 1)
-            this.setSelectionRange(firstPosition, firstPosition);
+        let value = this.value;
+        let newValue = value.replace(/\s+/g,'');
+        let firstPosition = this.selectionStart;
+        let parts = [];
+        
+        for (let index = 0; index < newValue.length; index += 4) {
+            parts.push(newValue.substring(index,index + 4));
+        }
+        
+        if(parts.length)
+        {
+            this.value = parts.join(' ');
+            let lastPosition = this.selectionStart;
+            if(lastPosition - firstPosition > 1)
+                this.setSelectionRange(firstPosition, firstPosition);
+        }
+        tmp = this.value;
     }
 
+})
+
+inputCvc.addEventListener("input",function(){
+    if (this.value.length > 3)
+        this.value = tmpCvc;
+    else
+        tmpCvc = this.value;
+})
+
+inputYear.addEventListener("input",function(){
+    if (this.value.length > 4)
+        this.value = tmpYear;
+    else
+        tmpYear = this.value;
 })
 
 // card month and year

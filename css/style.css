@@ -32,7 +32,6 @@ html,body{
 body{
     display: flex;
     justify-content: center;
-    align-items: center;
     font-family: var(--family);
 }
 
@@ -306,6 +305,11 @@ form button{
 /* Responsive */
 
 @media screen and (min-width: 1440px) {
+
+    body{
+        align-items: center;
+    }
+
 
     main{
         width: 70rem;
