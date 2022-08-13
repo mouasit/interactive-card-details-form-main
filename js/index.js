@@ -13,6 +13,8 @@ const numberMonth = document.getElementById("numberMonth");
 const numberYear = document.getElementById("numberYear");
 const numberCvc = document.getElementById("numberCvc");
 
+const thankYou = document.getElementById("thankYou");
+
 var tmpCard = '';
 var tmpCvc = '';
 var tmpYear = '';
@@ -86,6 +88,7 @@ inputMonth.addEventListener("input",function(e){
 form.addEventListener("submit",function(e){
     e.preventDefault();
     let array = Array.prototype.slice.call(inputGroupe);
+    let stateError = 0;
     array.forEach(item => {
         let input = item.querySelectorAll("input");
         let error = item.querySelectorAll(".error");
@@ -100,10 +103,16 @@ form.addEventListener("submit",function(e){
                 error[0].style.display = "block";
                 myInput.classList.add("error-state");
                 error[0].innerHTML = errorMessage;
+                stateError = 1;
                 return;
             }
         });
     });
+    if (!stateError)
+    {
+        form.style.display = "none";
+        thankYou.style.display = "flex";
+    }
 });
 
 
