@@ -167,6 +167,7 @@ main{
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
+    display: none;
 }
 
 .right-side form .input-groupe{
