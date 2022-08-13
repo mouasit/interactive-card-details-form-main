@@ -218,6 +218,11 @@ main{
     outline: none;
 }
 
+.right-side form .input-groupe input:hover{
+    border-color: hsl(278, 94%, 30%);
+    outline: none;
+}
+
 
 .right-side form .row-input{
     display: flex;
