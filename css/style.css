@@ -44,6 +44,10 @@ main{
     flex-direction: column;
 }
 
+.heading{
+    display: none;
+}
+
 /* left side */
 
 .left-side {
