@@ -44,7 +44,7 @@ main{
     flex-direction: column;
 }
 
-.heading{
+main h1:first-child{
     display: none;
 }
 
